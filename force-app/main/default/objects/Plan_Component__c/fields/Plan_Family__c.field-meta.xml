@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>Plan Family</label>
     <referenceTo>Plan_Family__c</referenceTo>
-    <relationshipLabel>Plan Components</relationshipLabel>
     <relationshipName>Plan_Components</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>true</reparentableMasterDetail>

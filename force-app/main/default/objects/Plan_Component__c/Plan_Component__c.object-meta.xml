@@ -157,13 +157,13 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Plan Component</label>
+    <label>Plan</label>
     <nameField>
         <label>Component Name</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Plan Components</pluralLabel>
+    <pluralLabel>Plan</pluralLabel>
     <searchLayouts>
         <searchResultsAdditionalFields>Product_Component_Desc__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Product_Component_Type__c</searchResultsAdditionalFields>

@@ -159,16 +159,16 @@
     <externalSharingModel>ReadWrite</externalSharingModel>
     <label>Attribute</label>
     <nameField>
-        <label>Attribute Code</label>
+        <label>Name</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Attributes</pluralLabel>
     <searchLayouts>
-        <searchResultsAdditionalFields>Attribute_Category__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Attribute_Long_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Attribute_Name__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Attribute_Display_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Full_Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

@@ -136,8 +136,8 @@
         <fields>NAME</fields>
         <fields>Attribute_Category__c</fields>
         <fields>Attribute__c</fields>
-        <fields>Attribute_Value__c</fields>
-        <fields>Effective_Date__c</fields>
+        <fields>In_Network_Display_Value__c</fields>
+        <fields>Out_Of_Network_Display_Value__c</fields>
         <relatedList>Attribute_Value__c.Plan_Family__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -214,7 +214,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h4x0000017aF7</masterLabel>
+        <masterLabel>00h3F000006o72I</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

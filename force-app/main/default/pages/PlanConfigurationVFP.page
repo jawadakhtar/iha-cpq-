@@ -1,0 +1,55 @@
+<apex:page controller="PlanConfigurationCtrl">
+    <apex:form >
+        <table>
+            <tr>
+                <td colspan='3'><apex:outputlabel value="Plan Family" for="planFamily" />
+                    <apex:selectList value="{!SelectedPlanFamilyId}" id="planFamily" size="1" multiselect="false">
+                        
+                          <apex:SelectOptions value="{!PlanFamilies}"/>
+                        <apex:actionSupport event="onchange"  action="{!planFamilyChanged}"/> <!--reRender="basePlanScreen,riderPlanScreen,planDetailsScreen,riderTableScreen"-->
+                    </apex:selectList></td>
+            </tr>
+            <tr >
+                <td><apex:outputlabel value="Base Plans" for="basePlan" /></td>
+                <td><apex:outputlabel value="Riders" for="rider" /></td>
+                <td><apex:outputlabel value="Rider Benifits" for="riderBenifits" /></td>
+            </tr>
+            <tr >
+                <td id="basePlanScreen" style="width:100px;">
+                    <apex:selectList value="{!SelectedBasePlanId}" id="basePlan"  size="10" multiselect="false">
+                        <apex:SelectOptions value="{!BasePlans}"/>
+                        <apex:actionSupport event="onchange"  action="{!chooseBaseFamily}"/> <!--reRender="planDetailsScreen"-->
+                    </apex:selectList>
+                </td>
+                <td id="riderPlanScreen" style="width:100px;">
+                    <apex:selectList value="{!SelectedRiderPlanId}" id="rider" size="10" multiselect="false">
+                        <apex:SelectOptions value="{!RiderPlans}"/>
+                        <apex:actionSupport event="onchange" action="{!chooseRiderFamily}"/><!--reRender="riderTableScreen" -->
+                    </apex:selectList>
+                </td>
+                <td >
+                    <apex:pageBlock id="riderTableScreen">
+                    <apex:outputPanel layout="block" style="overflow:auto;width:800px;height:100%" ><!--rendered="{!showRBTable}" -->
+                      <apex:pageBlockTable value="{!RiderBenefits}"  var="rB"> 
+                        <apex:column headerValue="Select" width="5px">
+                            <apex:inputCheckbox value="{!rB.selected}" />
+                        </apex:column>
+                         <apex:column headerValue="Plan" value="{!rB.Plan}"/>
+                         <apex:column headerValue="Benefit" value="{!rB.Benefit}"/>
+                      </apex:pageBlockTable>
+                    </apex:outputPanel>
+                    </apex:pageBlock>
+                    <apex:commandButton action="{!addPlan}" value="Add" /> <!--rerender="planDetailsScreen,riderTableScreen"-->
+                </td>
+            </tr>
+        </table>
+        <apex:pageBlock title="Plan Benefits" id="planDetailsScreen">
+          <apex:outputPanel layout="block" style="overflow:auto;width:100%;height:200px" >
+          <apex:pageBlockTable value="{!ConfiguredBenefits}" var="cB">
+             <apex:column headerValue="Plan" value="{!cB.Plan}"/>
+             <apex:column headerValue="Benefit" value="{!cB.Benefit}"/>
+          </apex:pageBlockTable>
+          </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

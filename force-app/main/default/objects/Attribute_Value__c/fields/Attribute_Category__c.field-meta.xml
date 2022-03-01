@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Attribute_Category__c</fullName>
     <externalId>false</externalId>
-    <formula>TEXT( Attribute__r.Attribute_Category__c)</formula>
+    <formula>TEXT( Attribute__r.Category__c)</formula>
     <label>Attribute Category</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

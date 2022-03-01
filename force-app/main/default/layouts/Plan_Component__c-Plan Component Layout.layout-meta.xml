@@ -83,11 +83,11 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Attribute__c.Attribute_Name__c</fields>
+        <fields>Value__c</fields>
         <fields>Attribute_Category__c</fields>
-        <fields>Attribute_Name__c</fields>
         <fields>Is_Key_Benefit__c</fields>
-        <fields>Is_Rate_Impacting__c</fields>
-        <relatedList>Component_Attribute__c.Plan_Component__c</relatedList>
+        <relatedList>Plan_Benefits__c.Plan__c</relatedList>
         <sortField>Is_Key_Benefit__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
@@ -97,7 +97,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h4x0000017aKo</masterLabel>
+        <masterLabel>00h3F000006o72G</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -159,7 +159,7 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Attribute Value</label>
     <nameField>
-        <label>Variant Name</label>
+        <label>Name</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>

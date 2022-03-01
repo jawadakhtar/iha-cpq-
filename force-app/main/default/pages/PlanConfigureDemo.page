@@ -1,0 +1,182 @@
+<apex:page controller="PlanConfiguratorCtrlDemo">
+    <script>
+        function switchMenu(obj,obj1,obj2) 
+        {
+            var el = document.getElementById(obj);                                       
+            if ( el.style.display != 'none' ) {
+            el.style.display = 'none';
+            }
+            else {
+            el.style.display = '';
+            }
+            var e2 = document.getElementById(obj1);                                       
+            if ( e2.style.display != 'none' ) {
+            e2.style.display = 'none';
+            }
+            else {
+            e2.style.display = '';
+            }
+             var e3 = document.getElementById(obj2);                                       
+            if ( e2.style.display != 'none' ) {
+            e3.style.display = 'none';
+            }
+            else {
+            e3.style.display = '';
+            }
+
+        }
+    </script>
+    <style>
+        .PlanBenifits{
+            border:1px solid #000;
+            padding:15px;
+        }
+        .planRecord{
+            border:1px solid #eee;
+            padding:15px;
+        }
+        .cBCell{
+            width:19%;
+            display:inline-block;
+        }
+        .columnHeader{
+            font-weight:bold;
+            background-color:#f2f3f3;
+        }
+        .columnHeader .cBCell{
+            border:1px solid #eee;
+        }
+        .childBenifits{
+            padding:15px;
+            border:1px solid #000;
+        }
+    </style>
+    <apex:form >
+        <table>
+            <tr>
+                <td colspan='3'><apex:outputlabel value="Plan Family" for="planFamily" />  
+                    <apex:selectList value="{!planFamily}" id="planFamily" size="1" multiselect="false">
+                        <apex:SelectOptions value="{!PlanFamilies}"/>
+                        <apex:actionSupport event="onchange"  action="{!changePlanFamily}"/> <!--reRender="basePlanScreen,riderPlanScreen,planDetailsScreen,riderTableScreen"-->
+                    </apex:selectList></td>
+            </tr>
+            <tr >
+                <td><apex:outputlabel value="Base Plans" for="basePlan" /></td>
+                <td><apex:outputlabel value="Riders" for="rider" /></td>
+                <td><apex:outputlabel value="Rider Benifits" for="riderBenifits" /></td>
+            </tr>
+            <tr >
+                <td id="basePlanScreen" style="width:100px;">
+                    <apex:selectList value="{!basePlan}" id="basePlan"  size="10" multiselect="false">
+                        <apex:SelectOptions value="{!BasePlans}"/>
+                        <apex:actionSupport event="onchange"  action="{!chooseBaseFamily}"/> <!--reRender="planDetailsScreen"-->
+                    </apex:selectList>
+                </td>
+                <td id="riderPlanScreen" style="width:100px;">
+                    <apex:selectList value="{!rider}" id="rider" size="10" multiselect="false">
+                        <apex:SelectOptions value="{!Riders}"/>
+                        <apex:actionSupport event="onchange" action="{!chooseRiderFamily}"/><!--reRender="riderTableScreen" -->
+                    </apex:selectList>
+                </td>
+                <td >
+                    <apex:pageBlock id="riderTableScreen">
+                        <apex:outputPanel layout="block" style="overflow:auto;width:800px;height:100%" rendered="{!showRBTable}"><!--rendered="{!showRBTable}" -->
+                            <apex:pageBlockTable value="{!RiderBenefits}"  var="rB"> 
+                                <apex:column headerValue="Select">
+                                    <apex:inputCheckbox value="{!rB.selected}" />
+                                </apex:column>
+                                <apex:column headerValue="Attribute Name" value="{!rB.Plan}"/>                                
+                                <apex:column headerValue="In Newtwork" value="{!rB.InNetwork}"/>
+                                <apex:column headerValue="Out Newtwork" value="{!rB.OutNetwork}"/>
+                                <apex:column headerValue="Additional Information" value="{!rB.AddInfo}"/>
+                            </apex:pageBlockTable>
+                        </apex:outputPanel>
+                    </apex:pageBlock>
+                    <apex:commandButton action="{!addPlan}" rendered="{!showRBTable}" value="Add" /> <!--rerender="planDetailsScreen,riderTableScreen"-->
+                </td>
+            </tr>
+        </table>       
+        <div class="PlanBenifits">
+             
+            <apex:repeat value="{!ConfiguredBenefits}" var="cB">
+                <div class="planRecord">
+                    <div class="columnHeader">
+                        <div class="cBCell">
+                            Attribute Name<br/>
+                        </div>
+                        <div class="cBCell">
+                            Benefit<br/>
+                        </div>
+                        <div class="cBCell">
+                            In Network<br/>
+                        </div>
+                        <div class="cBCell">
+                            Out Network<br/>
+                        </div>
+                        <div class="cBCell">
+                            Additional Information<br/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cBCell">
+                            {!cB.Plan}
+                        </div>
+                        <div class="cBCell">
+                            {!cB.Benefit}
+                        </div>
+                        <div class="cBCell">
+                            {!cB.InNetwork}
+                        </div>
+                        <div class="cBCell">
+                            {!cB.OutNetwork}
+                        </div>
+                        <div class="cBCell">
+                            {!cB.AddInfo}
+                        </div>
+                    </div>
+                    <apex:outputPanel rendered="{!cB.childBenefits.size > 0}">
+                        <div class="childBenifits">
+                            <div class="columnHeader">
+                                <div class="cBCell">
+                                    Attribute Name<br/>
+                                </div>
+                                <div class="cBCell">
+                                    Benefit<br/>
+                                </div>
+                                <div class="cBCell">
+                                    In Network<br/>
+                                </div>
+                                <div class="cBCell">
+                                    Out Network<br/>
+                                </div>
+                                <div class="cBCell">
+                                    Additional Information<br/>
+                                </div>
+                            </div>
+                            <apex:repeat value="{!cB.childBenefits}" var="child">
+                                <div>
+                                    <div class="cBCell">
+                                        {!cB.Plan}
+                                    </div>
+                                    <div class="cBCell">
+                                        {!cB.Benefit}
+                                    </div>
+                                    <div class="cBCell">
+                                        {!cB.InNetwork}
+                                    </div>
+                                    <div class="cBCell">
+                                        {!cB.OutNetwork}
+                                    </div>
+                                    <div class="cBCell">
+                                        {!cB.AddInfo}
+                                    </div>
+                                </div>
+                            </apex:repeat>
+                        </div>
+                    </apex:outputPanel>
+                    
+                </div>
+            </apex:repeat>
+        </div>
+    </apex:form>
+</apex:page>

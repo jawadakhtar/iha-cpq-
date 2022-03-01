@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Benefit Value</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Benefit Value</inlineHelpText>
+    <label>Value</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Attribute_Value__c.Attribute__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Benefit__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Attribute_Value__c</referenceTo>
+    <relationshipLabel>Plan Benefits</relationshipLabel>
+    <relationshipName>Plan_Benefits</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
