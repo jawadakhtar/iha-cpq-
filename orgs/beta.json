@@ -1,0 +1,37 @@
+{
+  "orgName": "healthplanEngage-SFDC - Beta Test Org",
+  "edition": "Developer",
+  "features" : [
+    "Communities", "RecordTypes","ContactsToMultipleAccounts"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+   },
+    "accountSettings": {
+      "enableAccountTeams": true
+   },
+    "chatterSettings": {
+      "enableChatter": true
+    },
+    "userManagementSettings": {
+      "enableNewProfileUI": true
+    },
+    "securitySettings": {
+      "enableAdminLoginAsAnyUser": true,
+      "sessionSettings": {
+        "forceRelogin": false
+      }
+    },
+    "languageSettings": {
+      "enableTranslationWorkbench": true
+    },
+    "quoteSettings": {
+      "enableQuote" : true
+    }
+  }
+  
+}
